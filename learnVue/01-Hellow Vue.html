@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="vue">{{msg}}</div>
+    <div id="show">
+        <p v-if="showing">showing</p>
+    </div>
+    <script>
+        //文本插值
+        let app = new Vue({
+            el: '#vue',
+            data: {
+                msg: 'hellow Vue!'
+            }
+        });
+
+        //条件与循环，带有v-前缀的代表指令
+        var show = new Vue({
+            el: '#show',
+            data: {
+                showing: true,
+            }
+        })
+
+        //
+    </script>
+</body>
+
+</html>
