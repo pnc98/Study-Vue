@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录切换</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-if="isUser">用户名</span>
+        <span v-else>邮箱</span>
+        <button @click="change">切换登录方式</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isUser: true,
+            },
+            methods: {
+                change() {
+                    if (this.isUser == true) {
+                        this.isUser = false;
+                    } else {
+                        this.isUser = true;
+                    };
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
