@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refs</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn ref="first"></cpn>
+        <button @click="btnClick">login</button>
+    </div>
+    <template id="cpn">
+    <div>
+      <p>内容</p>
+    </div>
+  </template>
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            name: 'park',
+                            msg: 'msg'
+                        }
+                    },
+                    methods: {
+                        showMsg() {
+                            console.log(this.msg)
+                        }
+                    }
+                }
+            },
+            methods: {
+                btnClick() {
+                    console.log(this.$refs.first.name);
+                    this.$refs.first.showMsg();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

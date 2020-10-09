@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具名插槽</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <template slot-scope="slot">
+          <span>{{slot.data.join(' - ')}}</span>
+        </template>
+        </cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <slot :data="language">
+          <div v-for="item in language">{{item}}</div>
+        </slot>
+      </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'msg',
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            language: ['js', 'java', 'python', 'c++', 'c#']
+                        }
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
